@@ -72,4 +72,28 @@ void Block::UndoRotation()
     {
         rotationState = cells.size() - 1;
     }
+    if (rotationState == -1)
+    {
+        rotationState = cells.size() - 1;
+    }
+    if (rotationState == -1)
+    {
+        rotationState = cells.size() - 1;
+    }
+    if (rotationState == -1)
+    {
+        rotationState = cells.size() - 1;
+    }
+    if (rotationState == -1)
+    {
+        rotationState = cells.size() - 1;
+    }
+    if (rotationState == -1)
+    {
+        rotationState = cells.size() - 1;
+    }
+    if (rotationState == -1)
+    {
+        rotationState = cells.size() - 1;
+    }
 }
