@@ -45,6 +45,15 @@ void Block::Rotate()
     }
 }
 
+void Block::Rotate2()
+{
+    rotationState++;
+    if (rotationState == (int)cells.size())
+    {
+        rotationState = 0;
+    }
+}
+
 void Block::UndoRotation()
 {
     rotationState--;
