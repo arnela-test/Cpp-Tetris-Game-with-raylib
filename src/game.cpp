@@ -122,15 +122,31 @@ void Game::MoveBlockDown()
     }
 }
 
-bool Game::IsBlockOutside()
+
+bool Game::IsAnyTileOutside(const std::vector<Position>& tiles)
 {
-    std::vector<Position> tiles = currentBlock.GetCellPositions();
     for (Position item : tiles)
     {
         if (grid.IsCellOutside(item.row, item.column))
         {
             return true;
         }
+    }
+    return false;
+}
+
+bool Game::IsBlockOutside()
+{
+    std::vector<Position> tiles = currentBlock.GetCellPositions();
+    if (IsAnyTileOutside(tiles))
+    {
+        return true;
+    }
+
+    std::vector<Position> tiles = currentBlock.GetCellPositions();
+    if (IsAnyTileOutside(tiles))
+    {
+        return true;
     }
     return false;
 }
@@ -195,6 +211,26 @@ void Game::Reset()
 }
 
 void Game::UpdateScore(int linesCleared, int moveDownPoints)
+{
+    switch (linesCleared)
+    {
+    case 1:
+        score += 100;
+        break;
+    case 2:
+        score += 300;
+        break;
+    case 3:
+        score += 500;
+        break;
+    default:
+        break;
+    }
+
+    score += moveDownPoints;
+}
+
+void Game::UpdateScore1(int linesCleared, int moveDownPoints)
 {
     switch (linesCleared)
     {

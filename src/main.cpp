@@ -16,7 +16,7 @@ bool EventTriggered(double interval)
     return false;
 }
 
-bool EventTriggered(double interval)
+bool EventTriggered1(double interval)
 {
     double currentTime = GetTime();
     if (currentTime - lastUpdateTime >= interval)
@@ -26,7 +26,6 @@ bool EventTriggered(double interval)
     }
     return false;
 }
-
 
 int main()
 {
