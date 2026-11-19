@@ -16,6 +16,18 @@ bool EventTriggered(double interval)
     return false;
 }
 
+bool EventTriggered(double interval)
+{
+    double currentTime = GetTime();
+    if (currentTime - lastUpdateTime >= interval)
+    {
+        lastUpdateTime = currentTime;
+        return true;
+    }
+    return false;
+}
+
+
 int main()
 {
     InitWindow(500, 620, "raylib Tetris");
