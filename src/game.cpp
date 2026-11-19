@@ -122,15 +122,31 @@ void Game::MoveBlockDown()
     }
 }
 
-bool Game::IsBlockOutside()
+
+bool Game::IsAnyTileOutside(const std::vector<Position>& tiles)
 {
-    std::vector<Position> tiles = currentBlock.GetCellPositions();
     for (Position item : tiles)
     {
         if (grid.IsCellOutside(item.row, item.column))
         {
             return true;
         }
+    }
+    return false;
+}
+
+bool Game::IsBlockOutside()
+{
+    std::vector<Position> tiles = currentBlock.GetCellPositions();
+    if (IsAnyTileOutside(tiles))
+    {
+        return true;
+    }
+
+    std::vector<Position> tiles = currentBlock.GetCellPositions();
+    if (IsAnyTileOutside(tiles))
+    {
+        return true;
     }
     return false;
 }
