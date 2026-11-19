@@ -213,3 +213,23 @@ void Game::UpdateScore(int linesCleared, int moveDownPoints)
 
     score += moveDownPoints;
 }
+
+void Game::UpdateScore1(int linesCleared, int moveDownPoints)
+{
+    switch (linesCleared)
+    {
+    case 1:
+        score += 100;
+        break;
+    case 2:
+        score += 300;
+        break;
+    case 3:
+        score += 500;
+        break;
+    default:
+        break;
+    }
+
+    score += moveDownPoints;
+}
